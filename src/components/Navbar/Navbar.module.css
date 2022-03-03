@@ -1,0 +1,12 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.container {
+  display: flex;
+  background-color: #f1f1f1;
+  padding: 1em;
+}
