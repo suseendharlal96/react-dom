@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import Checkbox from "./components/Checkbox/Checkbox";
 import Timer from "./components/Timer/Timer";
 import Calender from "./components/Calender/Calender";
+import Parent from "./components/HOC/Parent";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
           <Route path="checkbox" element={<Checkbox />} />
           <Route path="timer" element={<Timer />} />
           <Route path="calender" element={<Calender />} />
+          <Route path="hoc" element={<Parent />} />
         </Route>
       </Routes>
     </Router>
