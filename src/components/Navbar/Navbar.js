@@ -9,6 +9,12 @@ const Navbar = () => {
       <li>
         <Link to="/checkbox">Checkbox</Link>
       </li>
+      <li>
+        <Link to="/timer">Timer</Link>
+      </li>
+      <li>
+        <Link to="/calender">Calender</Link>
+      </li>
     </ul>
   );
 };

@@ -5,6 +5,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Checkbox from "./components/Checkbox/Checkbox";
+import Timer from "./components/Timer/Timer";
+import Calender from "./components/Calender/Calender";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +14,8 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="checkbox" element={<Checkbox />} />
+          <Route path="timer" element={<Timer />} />
+          <Route path="calender" element={<Calender />} />
         </Route>
       </Routes>
     </Router>

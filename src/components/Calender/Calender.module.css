@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calenderRow {
+  display: flex;
+  grid-template-columns: repeat(7, 150px);
+}
+
+.btncontainer {
+  margin-top: 150px;
+}
+
+button{
+    margin: 0 20px;
+}
+
+.square {
+  padding: 1em;
+  width: 80px;
+  height: 80px;
+  border: 1px solid;
+  text-align: center;
+}
+
+.active {
+  padding: 1em;
+  width: 80px;
+  height: 80px;
+  border: 1px solid;
+  background-color: lightpink;
+  text-align: center;
+}

@@ -9,4 +9,6 @@
   display: flex;
   background-color: #f1f1f1;
   padding: 1em;
+  gap: 10px;
+  /* justify-content: sp; */
 }

@@ -17,7 +17,6 @@ const Checkbox = () => {
         parent.checked = checkedChildren === children.length;
         parent.indeterminate = !parent.checked && checkedChildren;
       }
-      console.log("hed");
       parent = getParent(parent);
     }
   };
@@ -40,7 +39,7 @@ const Checkbox = () => {
     const closestUl = closestLi.querySelector("ul");
     return (closestUl && closestUl.querySelectorAll('input[type="checkbox"]')) || [];
   };
-  
+
   return (
     <>
       <h2>Nested Checkbox</h2>
