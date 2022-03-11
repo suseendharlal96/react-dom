@@ -15,7 +15,7 @@ const Calender = () => {
   let nextMonthStart = 1;
   let prevMonthEnd = new Array(new Date(new Date().getFullYear(), new Date().getMonth(), 0).getDate()).fill().map((_, i) => i + 1);
 
-  console.log(prevMonthEnd);
+  // console.log(prevMonthEnd);
 
   useEffect(() => {
     setCurrMonthYear([new Date().getMonth(), new Date().getFullYear()]);

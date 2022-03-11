@@ -1,0 +1,16 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridContainer {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  border: 1px solid;
+  gap: 1px;
+}
+.block {
+}

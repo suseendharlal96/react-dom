@@ -4,11 +4,20 @@
   box-sizing: border-box;
 }
 
-
 .container {
   display: flex;
-  background-color: #f1f1f1;
+  background-color: rgb(33, 37, 41);
   padding: 1em;
   gap: 10px;
   /* justify-content: sp; */
+}
+
+.link{
+  padding: 1em;
+  color: #ffffff;
+}
+
+.activeLink{
+  padding: 1em;
+  color: #DA3D43;
 }
