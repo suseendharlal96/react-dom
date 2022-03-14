@@ -5,12 +5,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Checkbox from "./components/Checkbox/Checkbox";
-import Timer from "./components/Timer/Timer";
+import CountDown from "./components/Countdown/Countdown";
 import Calender from "./components/Calender/Calender";
 import Parent from "./components/HOC/Parent";
 import Error from "./components/ErrorComponent/Error";
 import Modal from "./components/Modal/Modal";
 import ColorSpotter from "./components/ColorSpotter/ColorSpotter";
+import Clock from "./components/Clock/Clock";
+import Timer from "./components/Timer/Timer";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,11 +27,13 @@ ReactDOM.render(
           }
         >
           <Route path="checkbox" element={<Checkbox />} />
-          <Route path="timer" element={<Timer />} />
+          <Route path="countdown" element={<CountDown />} />
           <Route path="calender" element={<Calender />} />
           <Route path="hoc" element={<Parent />} />
           <Route path="modal" element={<Modal />} />
           <Route path="colorspotter" element={<ColorSpotter />} />
+          <Route path="clock" element={<Clock />} />
+          <Route path="timer" element={<Timer />} />
         </Route>
       </Routes>
     </Router>

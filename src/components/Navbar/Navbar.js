@@ -5,11 +5,13 @@ import className from "./Navbar.module.css";
 
 const links = [
   { id: 1, url: "checkbox", name: "Checkbox" },
-  { id: 2, url: "timer", name: "Timer" },
+  { id: 2, url: "countdown", name: "Countdown" },
   { id: 3, url: "calender", name: "Calender" },
   { id: 4, url: "hoc", name: "HOC" },
   { id: 5, url: "modal", name: "Modal" },
   { id: 6, url: "colorspotter", name: "Color Spotter" },
+  { id: 7, url: "clock", name: "Clock" },
+  { id: 8, url: "timer", name: "Timer" },
 ];
 const Navbar = () => {
   // const [a, a] = useState(d);

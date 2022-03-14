@@ -6,11 +6,10 @@
 }
 
 .gridContainer {
+  cursor: pointer;
   display: grid;
   width: 500px;
   height: 500px;
   border: 1px solid;
   gap: 1px;
-}
-.block {
 }

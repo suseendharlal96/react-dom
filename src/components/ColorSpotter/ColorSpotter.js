@@ -11,7 +11,6 @@ const ColorSpotter = () => {
   const blockRef = useRef(null);
 
   const getRandomColor = () => {
-    console.log("here1");
     const colors = [];
     for (let i = 0; i < 3; i++) {
       colors.push(Math.floor(Math.random() * 255 + 1));
@@ -20,7 +19,6 @@ const ColorSpotter = () => {
   };
 
   const getRandomIndex = () => {
-    console.log("here3");
     setRandomIndex([Math.floor(Math.random() * gridSize), Math.floor(Math.random() * gridSize)]);
   };
 
@@ -41,10 +39,11 @@ const ColorSpotter = () => {
       setGridSize((prev) => prev + 1);
       setScore((prev) => prev + 1);
     } else {
-      console.log("sd", blockRef.current);
       if (blockRef.current) {
         blockRef.current.animate([{ transform: "translate(-20px)" }, { transform: "translate(20px)" }, { transform: "translate(-20px)" }], {
+          iteration: 8,
           duration: 100,
+          easing: "linear",
         });
       }
       setGridSize(4);

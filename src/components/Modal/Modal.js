@@ -31,7 +31,7 @@ const Modal = () => {
   return ReactDOM.createPortal(
     <>
       <Button clickHandler={() => showModal()} ref={buttonRef} />
-      <Input name="sd" ref={inputRef} />
+      {/* <Input name="sd" ref={inputRef} /> */}
       {show && (
         <div onClick={({ target }) => onClickOutside(target)} className={className.overlay}>
           <div ref={overlayRef} className={className.modalBody}>
