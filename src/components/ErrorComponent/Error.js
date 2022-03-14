@@ -8,12 +8,21 @@ class Error extends React.Component {
 
   componentDidCatch(err, errInfo) {
     console.log({ err, errInfo });
-    this.setState((prev) => ({ ...prev, isError: true }));
+    this.setState((prev) => ({ ...prev, isError: true, errorInfo: err }));
   }
 
   render() {
     if (this.state.isError) {
-      return <h2>Something Wrong</h2>;
+      return (
+        <>
+          <h2>Something Wrong</h2>
+          <details>
+            <summary>Error Info</summary>
+            <p>{this.state.errorInfo.message}</p>
+            <p>{this.state.errorInfo.stack}</p>
+          </details>
+        </>
+      );
     }
     return this.props.children;
   }

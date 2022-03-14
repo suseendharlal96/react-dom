@@ -1,8 +1,51 @@
 import React from "react";
-import className from "./Checkbox.module.css";
+
+import CheckboxChild from "./CheckboxChild";
+
+const checkBoxObj = [
+  {
+    name: "All things",
+    id: "all",
+    child: [
+      {
+        name: "Tall things",
+        id: "tall",
+        child: [
+          {
+            name: "Buildings",
+            id: "building",
+            child: [
+              { name: "Ghiza", id: "building-1" },
+              { name: "Eiffel", id: "building-2" },
+            ],
+          },
+          {
+            name: "Persons",
+            id: "persons",
+            child: [
+              { name: "Andre", id: "persons-1" },
+              { name: "Paul", id: "persons-2" },
+            ],
+          },
+          {
+            name: "Dinosaur",
+            id: "animals",
+          },
+        ],
+      },
+      {
+        name: "Short things",
+        id: "short",
+        child: [
+          { name: "Cat", id: "short-1" },
+          { name: "Ant", id: "short-2" },
+        ],
+      },
+    ],
+  },
+];
 
 const Checkbox = () => {
-
   const updateCheckbox = ({ target: el }) => {
     updateChild(el);
     updateParent(el);
@@ -44,64 +87,9 @@ const Checkbox = () => {
     <>
       <h2>Nested Checkbox</h2>
       <ul>
-        <li className={className.moveLeft}>
-          <input onChange={updateCheckbox} type="checkbox" id="all" />
-          <label htmlFor="all">All things</label>
-          <ul>
-            <li className={className.moveLeft}>
-              <input onChange={updateCheckbox} type="checkbox" id="tall" />
-              <label htmlFor="tall">Tall things</label>
-              <ul>
-                <li className={className.moveLeft}>
-                  <input onChange={updateCheckbox} type="checkbox" id="building" />
-                  <label htmlFor="building">Buildings</label>
-                  <ul>
-                    <li className={className.moveLeft}>
-                      <input onChange={updateCheckbox} type="checkbox" id="building-1" />
-                      <label htmlFor="building-1">Ghiza</label>
-                    </li>
-                    <li className={className.moveLeft}>
-                      <input onChange={updateCheckbox} type="checkbox" id="building-2" />
-                      <label htmlFor="building-2">Eiffel</label>
-                    </li>
-                  </ul>
-                </li>
-                <li className={className.moveLeft}>
-                  <input onChange={updateCheckbox} type="checkbox" id="persons" />
-                  <label htmlFor="persons">Persons</label>
-                  <ul>
-                    <li className={className.moveLeft}>
-                      <input onChange={updateCheckbox} type="checkbox" id="persons-1" />
-                      <label htmlFor="persons-1">Andre</label>
-                    </li>
-                    <li className={className.moveLeft}>
-                      <input onChange={updateCheckbox} type="checkbox" id="persons-2" />
-                      <label htmlFor="persons-2">Paul</label>
-                    </li>
-                  </ul>
-                </li>
-                <li className={className.moveLeft}>
-                  <input onChange={updateCheckbox} type="checkbox" id="animals" />
-                  <label htmlFor="animals">Dinosaur</label>
-                </li>
-              </ul>
-            </li>
-            <li className={className.moveLeft}>
-              <input onChange={updateCheckbox} type="checkbox" id="short" />
-              <label htmlFor="short">Short things</label>
-              <ul>
-                <li className={className.moveLeft}>
-                  <input onChange={updateCheckbox} type="checkbox" id="short-1" />
-                  <label htmlFor="short-1">Cat</label>
-                </li>
-                <li className={className.moveLeft}>
-                  <input onChange={updateCheckbox} type="checkbox" id="short-2" />
-                  <label htmlFor="short-2">Ant</label>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
+        {checkBoxObj.map((o) => (
+          <CheckboxChild key={o.id} list={o} updateCheckbox={updateCheckbox} />
+        ))}
       </ul>
     </>
   );
