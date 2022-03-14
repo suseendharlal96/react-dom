@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 class Error extends React.Component {
   constructor(props) {
     super(props);
@@ -27,4 +29,9 @@ class Error extends React.Component {
     return this.props.children;
   }
 }
+
+Error.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
 export default Error;

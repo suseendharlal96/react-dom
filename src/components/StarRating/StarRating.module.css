@@ -1,0 +1,39 @@
+:root {
+  --starColor: hsl(0, 0%, 100%);
+}
+
+.starContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: lightgrey;
+  height: 50vh;
+}
+
+.star {
+  cursor: pointer;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
+  border-bottom: 100px solid var(--starColor);
+}
+
+.star::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  top: 25px;
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
+  border-top: 100px solid var(--starColor);
+  /* transform: rotate(180deg); */
+}
+
+/* .star:hover {
+  --starColor: hsl(39, 90%, 61%);
+} */

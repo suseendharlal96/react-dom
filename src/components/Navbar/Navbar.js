@@ -12,6 +12,7 @@ const links = [
   { id: 6, url: "colorspotter", name: "Color Spotter" },
   { id: 7, url: "clock", name: "Clock" },
   { id: 8, url: "timer", name: "Timer" },
+  { id: 9, url: "star", name: "StarRating" },
 ];
 const Navbar = () => {
   // const [a, a] = useState(d);

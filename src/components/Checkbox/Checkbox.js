@@ -6,15 +6,15 @@ const checkBoxObj = [
   {
     name: "All things",
     id: "all",
-    child: [
+    children: [
       {
         name: "Tall things",
         id: "tall",
-        child: [
+        children: [
           {
             name: "Buildings",
             id: "building",
-            child: [
+            children: [
               { name: "Ghiza", id: "building-1" },
               { name: "Eiffel", id: "building-2" },
             ],
@@ -22,7 +22,7 @@ const checkBoxObj = [
           {
             name: "Persons",
             id: "persons",
-            child: [
+            children: [
               { name: "Andre", id: "persons-1" },
               { name: "Paul", id: "persons-2" },
             ],
@@ -36,7 +36,7 @@ const checkBoxObj = [
       {
         name: "Short things",
         id: "short",
-        child: [
+        children: [
           { name: "Cat", id: "short-1" },
           { name: "Ant", id: "short-2" },
         ],
