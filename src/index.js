@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Navbar from "./components/Navbar/Navbar";
 const Checkbox = React.lazy(() => import("./components/Checkbox/Checkbox"));
 const CountDown = React.lazy(() => import("./components/Countdown/Countdown"));
 const Calender = React.lazy(() => import("./components/Calender/Calender"));
@@ -18,6 +19,7 @@ const StarRating = React.lazy(() => import("./components/StarRating/StarRating")
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <Navbar />
       <React.Suspense fallback={<h2>Loading...</h2>}>
         <Routes>
           <Route

@@ -87,8 +87,8 @@ const Checkbox = () => {
     <>
       <h2>Nested Checkbox</h2>
       <ul>
-        {checkBoxObj.map((o) => (
-          <CheckboxChild key={o.id} list={o} updateCheckbox={updateCheckbox} />
+        {checkBoxObj.map((ch) => (
+          <CheckboxChild key={ch.id} list={ch} updateCheckbox={updateCheckbox} />
         ))}
       </ul>
     </>
