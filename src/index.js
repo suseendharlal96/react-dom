@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Navbar from "./components/Navbar/Navbar";
+import QueenMove from "./components/QueenMove/QueenMove";
 const Checkbox = React.lazy(() => import("./components/Checkbox/Checkbox"));
 const CountDown = React.lazy(() => import("./components/Countdown/Countdown"));
 const Calender = React.lazy(() => import("./components/Calender/Calender"));
@@ -39,6 +40,7 @@ ReactDOM.render(
             <Route path="clock" element={<Clock />} />
             <Route path="timer" element={<Timer />} />
             <Route path="star" element={<StarRating />} />
+            <Route path="queenmove" element={<QueenMove />} />
           </Route>
         </Routes>
       </React.Suspense>
