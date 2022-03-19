@@ -14,6 +14,7 @@ const links = [
   { id: 8, url: "timer", name: "Timer" },
   { id: 9, url: "star", name: "StarRating" },
   { id: 10, url: "queenmove", name: "QueenMove" },
+  { id: 11, url: "memory", name: "MemoryGame" },
 ];
 const Navbar = () => {
   // const [a, a] = useState(d);
