@@ -13,7 +13,6 @@ const Memory = () => {
   const gridRef = useRef();
 
   useEffect(() => {
-    console.log({ level });
     const res = [];
     for (let i = 0; i < level; i++) {
       res.push(`${Math.floor(Math.random() * gridSize)}_${Math.floor(Math.random() * gridSize)}`);
@@ -41,10 +40,8 @@ const Memory = () => {
     setGameStarted(true);
     buttonRef.current.disabled = true;
     gridRef.current.disabled = true;
-    console.log(randomIndex);
     for (let i = 0; i < randomIndex.length; i++) {
       setTimeout(() => {
-        console.log(document.querySelector(`[data-id='${randomIndex[i]}']`));
         document.querySelector(`[data-id='${randomIndex[i]}']`).classList.toggle(classNames.highlight);
         setTimeout(() => {
           document.querySelector(`[data-id='${randomIndex[i]}']`).classList.toggle(classNames.highlight);
@@ -63,14 +60,12 @@ const Memory = () => {
     // let temp = [...randomIndex];
     if (dataId === randomIndex[0]) {
       const temp = [...randomIndex];
-      console.log({ temp });
       temp.shift();
       setRandomIndex(temp);
       document.querySelector(`[data-id='${dataId}']`).classList.toggle(classNames.green);
       setTimeout(() => {
         document.querySelector(`[data-id='${dataId}']`).classList.toggle(classNames.green);
       }, 400);
-      console.log({ randomIndex, temp });
       if (temp.length === 0) {
         setScore((prev) => prev + 1);
         setLevel((prev) => prev + 1);
