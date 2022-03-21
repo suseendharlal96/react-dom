@@ -5,8 +5,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Navbar from "./components/Navbar/Navbar";
-import QueenMove from "./components/QueenMove/QueenMove";
-import Memory from "./components/Memory/Memory";
 const Checkbox = React.lazy(() => import("./components/Checkbox/Checkbox"));
 const CountDown = React.lazy(() => import("./components/Countdown/Countdown"));
 const Calender = React.lazy(() => import("./components/Calender/Calender"));
@@ -17,6 +15,9 @@ const ColorSpotter = React.lazy(() => import("./components/ColorSpotter/ColorSpo
 const Clock = React.lazy(() => import("./components/Clock/Clock"));
 const Timer = React.lazy(() => import("./components/Timer/Timer"));
 const StarRating = React.lazy(() => import("./components/StarRating/StarRating"));
+const QueenMove = React.lazy(() => import("./components/QueenMove/QueenMove"));
+const Memory = React.lazy(() => import("./components/Memory/Memory"));
+const Nested = React.lazy(() => import("./components/NestedFolder/Nested"));
 
 ReactDOM.render(
   <React.StrictMode>
@@ -43,6 +44,7 @@ ReactDOM.render(
             <Route path="star" element={<StarRating />} />
             <Route path="queenmove" element={<QueenMove />} />
             <Route path="memory" element={<Memory />} />
+            <Route path="folder" element={<Nested />} />
           </Route>
         </Routes>
       </React.Suspense>
