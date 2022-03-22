@@ -9,15 +9,26 @@
   background-color: rgb(33, 37, 41);
   padding: 1em;
   gap: 10px;
+  flex-wrap: wrap;
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
   /* justify-content: sp; */
 }
 
-.link{
+.links {
   padding: 1em;
   color: #ffffff;
+  text-decoration: none;
 }
 
-.activeLink{
-  padding: 1em;
-  color: #DA3D43;
+.activeLink {
+  /* padding: 1em; */
+  color: #da3d43;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

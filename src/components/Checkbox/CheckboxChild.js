@@ -10,7 +10,7 @@ const CheckboxChild = ({ list, updateCheckbox }) => {
       <input onChange={updateCheckbox} type="checkbox" id={list.id} />
       <label htmlFor={list.id}>{list.name}</label>
       {list.children && (
-        <ul>
+        <ul className={classNames.unorderList}>
           {list.children.map((ch) => (
             <CheckboxChild key={ch.id} updateCheckbox={updateCheckbox} list={ch} />
           ))}

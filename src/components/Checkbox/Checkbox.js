@@ -2,6 +2,8 @@ import React from "react";
 
 import CheckboxChild from "./CheckboxChild";
 
+import classNames from "./Checkbox.module.css";
+
 const checkBoxObj = [
   {
     name: "All things",
@@ -86,7 +88,7 @@ const Checkbox = () => {
   return (
     <>
       <h2>Nested Checkbox</h2>
-      <ul>
+      <ul className={classNames.unorderList}>
         {checkBoxObj.map((ch) => (
           <CheckboxChild key={ch.id} list={ch} updateCheckbox={updateCheckbox} />
         ))}

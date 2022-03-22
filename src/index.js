@@ -18,6 +18,7 @@ const StarRating = React.lazy(() => import("./components/StarRating/StarRating")
 const QueenMove = React.lazy(() => import("./components/QueenMove/QueenMove"));
 const Memory = React.lazy(() => import("./components/Memory/Memory"));
 const Nested = React.lazy(() => import("./components/NestedFolder/Nested"));
+const Comment = React.lazy(() => import("./components/Comment/Comment"));
 
 ReactDOM.render(
   <React.StrictMode>
@@ -45,6 +46,7 @@ ReactDOM.render(
             <Route path="queenmove" element={<QueenMove />} />
             <Route path="memory" element={<Memory />} />
             <Route path="folder" element={<Nested />} />
+            <Route path="comments" element={<Comment />} />
           </Route>
         </Routes>
       </React.Suspense>

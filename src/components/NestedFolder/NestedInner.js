@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const NestedInner = ({ folder }) => {
-  console.log(folder);
   const [isHidden, setIsHidden] = useState(true);
   return (
     <div>

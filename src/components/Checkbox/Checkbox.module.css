@@ -4,11 +4,16 @@
   box-sizing: border-box;
 }
 
-
-.moveLeft{
-    margin: 20px 40px;
+.moveLeft {
+  margin: 20px 10px;
+  text-decoration: none;
 }
 
-input[type="checkbox"]{
-    accent-color:red
+.unorderList {
+  list-style: none;
+  text-decoration: none;
+}
+
+input[type="checkbox"] {
+  accent-color: red;
 }
