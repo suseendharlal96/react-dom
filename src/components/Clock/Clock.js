@@ -27,7 +27,7 @@ const Clock = () => {
       <div className={classNames.clockContainer}>
         {Array.from({ length: 12 }).map((_, i) => (
           <div key={i} className={classNames.numberContainer} style={{ transform: `rotate(${((i + 1) * 30) % 360}deg)` }}>
-            <div className={classNames.number} style={{ transform: `rotate(${-1 * (((i + 1) * 30) % 360)}deg)` }}>
+            <div style={{ transform: `rotate(${-1 * (((i + 1) * 30) % 360)}deg)` }}>
               {i + 1}
             </div>
           </div>
