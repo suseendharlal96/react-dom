@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import classNames from "./Comment.module.css";
 
 import Replies from "./Replies";
 
 const Comment = () => {
+  const firstCommentRef = useRef();
   const [comment, setComments] = useState([
     {
       id: 1,
@@ -45,9 +46,16 @@ const Comment = () => {
   };
 
   return (
-    <div>
-      <input type="text" />
-      <button>Comment</button>
+    <div className={classNames.commentContainer}>
+      <input type="text" ref={firstCommentRef} />
+      <button
+        onClick={() => {
+          setComments((prev) => [...prev, { id: Date.now() * Math.random(), comment: firstCommentRef.current.value }]);
+          firstCommentRef.current.value = "";
+        }}
+      >
+        Comment
+      </button>
       <ul>
         {comment.map((c, i) => (
           <Replies comment={c} key={i} addReply={(val) => addReply(val)} />

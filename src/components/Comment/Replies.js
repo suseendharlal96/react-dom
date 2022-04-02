@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
+import classNames from './Comment.module.css'
+
 const Replies = ({ comment, addReply }) => {
-//   console.log({ addReply }); 
+  //   console.log({ addReply });
   const [shouldShow, setShouldShow] = useState(false);
   const [replyText, setReplyText] = useState("");
 
@@ -9,14 +11,19 @@ const Replies = ({ comment, addReply }) => {
     setReplyText("");
     setShouldShow(false);
   };
+
+  const reply = (val) => {
+    addReply(val);
+    clear();
+  };
   return (
     <div>
-      <li>{comment.comment}</li>
+      <li class={classNames.replyList}>{comment.comment}</li>
       <button onClick={() => setShouldShow(true)}>Reply</button>
       {shouldShow && (
         <>
           <input type="text" value={replyText} onChange={({ target: { value } }) => setReplyText(value)} />
-          <button onClick={() => addReply({comment, replyText})}>Confirm</button>
+          <button onClick={() => reply({ comment, replyText })}>Confirm</button>
           <button onClick={() => clear()}>Cancel</button>
         </>
       )}
