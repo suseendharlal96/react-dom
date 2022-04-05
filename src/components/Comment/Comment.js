@@ -28,11 +28,8 @@ const Comment = () => {
     const commentClone = JSON.parse(JSON.stringify(comment));
     findObject(commentClone);
     function findObject(parent) {
-      console.log({ parent });
       parent.forEach((k) => {
-        console.log({ obj: k });
         const found = k.id === val.comment.id;
-        console.log(found);
         if (found && k["replies"]) {
           k["replies"].push({ id: Date.now() * Math.random(), comment: val.replyText });
         } else if (found) {
