@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* justify-content: space-between; */
+  position: relative;
+  width: 50%;
+}
+
+input {
+  background: transparent;
+  padding: 1em;
+  width: 100%;
+}
+
+input:first-child {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+input:last-child {
+  position: absolute;
+  z-index: 10;
+}
+.predictionListContainer {
+  list-style-type: none;
+  padding:0;
+  margin:0;
+  background-color:lightblue;
+  text-align:center;
+  min-height: 50px;
+  max-height: 300px;
+  overflow: auto;
+  border:1px solid lightskyblue
+}
+
+.predictionList {
+  padding: 1em;
+  cursor: pointer;
+}
+.predictionList:hover{
+  background: lightcyan;
+}
+
+.predictionList:not(:last-child) {
+  border-bottom: 1px solid grey;
+}

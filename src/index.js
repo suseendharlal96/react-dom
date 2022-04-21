@@ -19,6 +19,7 @@ const QueenMove = React.lazy(() => import("./components/QueenMove/QueenMove"));
 const Memory = React.lazy(() => import("./components/Memory/Memory"));
 const Nested = React.lazy(() => import("./components/NestedFolder/Nested"));
 const Comment = React.lazy(() => import("./components/Comment/Comment"));
+const Autocomplete=React.lazy(()=>import('./components/Autocomplete/Autocomplete'))
 
 ReactDOM.render(
   <React.StrictMode>
@@ -47,6 +48,7 @@ ReactDOM.render(
             <Route path="memory" element={<Memory />} />
             <Route path="folder" element={<Nested />} />
             <Route path="comments" element={<Comment />} />
+            <Route path="autocomplete" element={<Autocomplete />} />
           </Route>
         </Routes>
       </React.Suspense>

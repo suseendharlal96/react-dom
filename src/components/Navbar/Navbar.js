@@ -17,6 +17,7 @@ const links = [
   { id: 11, url: "memory", name: "MemoryGame" },
   { id: 12, url: "folder", name: "Folder" },
   { id: 13, url: "comments", name: "Comments" },
+  { id: 14, url: "autocomplete", name: "Autocomplete" },
 ];
 const Navbar = () => {
   // const [a, a] = useState(d);

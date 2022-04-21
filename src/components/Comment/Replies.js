@@ -18,7 +18,7 @@ const Replies = ({ comment, addReply }) => {
   };
   return (
     <div>
-      <li class={classNames.replyList}>{comment.comment}</li>
+      <li className={classNames.replyList}>{comment.comment}</li>
       <button onClick={() => setShouldShow(true)}>Reply</button>
       {shouldShow && (
         <>
