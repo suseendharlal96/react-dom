@@ -31,7 +31,7 @@ const Autocomplete = () => {
           setSuggested(`${value}`);
           setPredictionList([]);
         }
-      }, 2000);
+      }, 1000);
       if (suggestedBanks.length > 0) {
         setSuggested(`${username}@${suggestedBanks[0]}`);
       } else {
