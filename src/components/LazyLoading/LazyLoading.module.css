@@ -1,0 +1,21 @@
+.placeholder {
+  background-color: grey;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted #000000;
+  height: 305px;
+  overflow: auto;
+  resize: both;
+}
