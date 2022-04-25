@@ -16,7 +16,9 @@ const InfiniteScroll = () => {
       const res = await fetch("https://dog.ceo/api/breed/labrador/images/random/10");
       if (res.status === 200 && res.ok) {
         const { message: imgUrls } = await res.json();
-        const usersWithImg = users.map((user, i) => ({ ...user, img: imgUrls[i] }));
+        const usersWithImg = users.reduce((acc, curr, i) => [...acc, { ...curr, img: imgUrls[i] }], []);
+        // const usersWithImg = users.map((user, i) => ({ ...user, img: imgUrls[i] }));
+        console.log({ usersWithImg });
         setUsers((prevUsers) => [...prevUsers, ...usersWithImg]);
       }
     }
