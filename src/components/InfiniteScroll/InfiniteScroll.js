@@ -13,7 +13,12 @@ const InfiniteScroll = () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
     if (response.ok && response.status === 200) {
       const users = await response.json();
-      setUsers((prevUsers) => [...prevUsers, ...users]);
+      const res = await fetch("https://dog.ceo/api/breed/labrador/images/random/10");
+      if (res.status === 200 && res.ok) {
+        const { message: imgUrls } = await res.json();
+        const usersWithImg = users.map((user, i) => ({ ...user, img: imgUrls[i] }));
+        setUsers((prevUsers) => [...prevUsers, ...usersWithImg]);
+      }
     }
   };
 
@@ -21,11 +26,7 @@ const InfiniteScroll = () => {
     getUsers();
   }, []);
 
-  return (
-    <div className={classes.cardContainer}>
-      {users.length > 0 && users.map((user, i) => <UserCard {...user} last={i === users.length - 1} img={lazyImagedata[user.id - 1].url} key={uuid()} getUsers={getUsers} />)}
-    </div>
-  );
+  return <div className={classes.cardContainer}>{users.length > 0 && users.map((user, i) => <UserCard {...user} last={i === users.length - 1} key={uuid()} getUsers={getUsers} />)}</div>;
 };
 
 export default InfiniteScroll;

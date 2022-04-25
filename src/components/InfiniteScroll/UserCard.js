@@ -7,8 +7,8 @@ const initInfiniteObserver = (ref, cb) => {
     (entries, observer) => {
       const lastCardObj = entries[0];
       if (!lastCardObj.isIntersecting) return;
-      observer.unobserve(ref);
       cb();
+      observer.unobserve(ref);
     },
     { threshold: 0.5 }
   );
@@ -16,25 +16,29 @@ const initInfiniteObserver = (ref, cb) => {
 };
 
 const initLazyImageObserver = (ref, cb) => {
-  const observer = new IntersectionObserver((entries, observer) => {
-    const observedElObj = entries[0];
-    if (!observedElObj.isIntersecting) return;
-    cb(true);
-    observer.unobserve(ref);
-  },{threshold:0.5});
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      const observedElObj = entries[0];
+      if (!observedElObj.isIntersecting) return;
+      cb(true);
+      observer.unobserve(ref);
+    },
+    { threshold: 0.5 }
+  );
 
   observer.observe(ref);
 };
 
-const UserCard = ({ id, name, email, getUsers, last, img }) => {
-  console.log({ last });
+const UserCard = ({ id, name, img, email, getUsers, last }) => {
   const [imgInViewport, setImgInViewport] = useState(false);
   const lastCardRef = useRef();
   const imgRef = useRef();
+
   useEffect(() => {
     if (last) initInfiniteObserver(lastCardRef.current, getUsers);
     initLazyImageObserver(imgRef.current, setImgInViewport);
-  }, [last,getUsers]);
+  }, [last, getUsers]);
+
   return last ? (
     <div ref={lastCardRef} className={classes.card}>
       {imgInViewport ? <img src={img} alt={name} /> : <img alt={name} ref={imgRef} className={classes.placeholder} />}
