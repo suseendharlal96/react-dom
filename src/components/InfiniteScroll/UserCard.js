@@ -34,16 +34,16 @@ const UserCard = ({ id, name, email, getUsers, last, img }) => {
   useEffect(() => {
     if (last) initInfiniteObserver(lastCardRef.current, getUsers);
     initLazyImageObserver(imgRef.current, setImgInViewport);
-  }, []);
+  }, [last,getUsers]);
   return last ? (
     <div ref={lastCardRef} className={classes.card}>
-      {imgInViewport ? <img src={img} alt={name} /> : <img ref={imgRef} className={classes.placeholder} />}
+      {imgInViewport ? <img src={img} alt={name} /> : <img alt={name} ref={imgRef} className={classes.placeholder} />}
       <p>Captured by: {name}</p>
       <p>{email}</p>
     </div>
   ) : (
     <div className={classes.card}>
-      {imgInViewport ? <img src={img} alt={name} /> : <img ref={imgRef} className={classes.placeholder} />}
+      {imgInViewport ? <img src={img} alt={name} /> : <img alt={name} ref={imgRef} className={classes.placeholder} />}
       <p>{id}</p>
       <p>Captured by: {name}</p>
       <p>{email}</p>

@@ -25,7 +25,7 @@ const Image = ({ id, url, root, threshold }) => {
     initObserver(imageRef.current, setIsLoaded, root, threshold);
   }, [root, threshold]);
 
-  return isLoaded ? <img className={classes.placeholder} src={url} /> : <img ref={imageRef} className={classes.placeholder} />;
+  return isLoaded ? <img alt={id} className={classes.placeholder} src={url} /> : <img alt={id} ref={imageRef} className={classes.placeholder} />;
 };
 
 export default Image;
