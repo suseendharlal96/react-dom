@@ -19,6 +19,7 @@ const links = [
   { id: 13, url: "comments", name: "Comments" },
   { id: 14, url: "autocomplete", name: "Autocomplete" },
   { id: 15, url: "lazyload", name: "LazyLoadImage" },
+  { id: 16, url: "infiniteload", name: "InfiniteLoad" },
 ];
 const Navbar = () => {
   // const [a, a] = useState(d);

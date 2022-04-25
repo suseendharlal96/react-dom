@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Navbar from "./components/Navbar/Navbar";
 import LazyLoad from "./components/LazyLoading/LazyLoading";
+import InfiniteScroll from "./components/InfiniteScroll/InfiniteScroll";
 const Checkbox = React.lazy(() => import("./components/Checkbox/Checkbox"));
 const CountDown = React.lazy(() => import("./components/Countdown/Countdown"));
 const Calender = React.lazy(() => import("./components/Calender/Calender"));
@@ -22,7 +23,6 @@ const Nested = React.lazy(() => import("./components/NestedFolder/Nested"));
 const Comment = React.lazy(() => import("./components/Comment/Comment"));
 const Autocomplete = React.lazy(() => import("./components/Autocomplete/Autocomplete"));
 
-
 ReactDOM.render(
   // <React.StrictMode>
   <Router>
@@ -37,6 +37,7 @@ ReactDOM.render(
             </Error>
           }
         >
+          <Route index element={<Checkbox />} />
           <Route path="checkbox" element={<Checkbox />} />
           <Route path="countdown" element={<CountDown />} />
           <Route path="calender" element={<Calender />} />
@@ -52,6 +53,7 @@ ReactDOM.render(
           <Route path="comments" element={<Comment />} />
           <Route path="autocomplete" element={<Autocomplete />} />
           <Route path="lazyload" element={<LazyLoad />} />
+          <Route path="infiniteload" element={<InfiniteScroll />} />
         </Route>
       </Routes>
     </React.Suspense>
