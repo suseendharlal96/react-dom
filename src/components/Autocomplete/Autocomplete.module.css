@@ -13,13 +13,13 @@
   width: 50%;
 }
 
-input {
+.input {
   background: transparent;
   padding: 1em;
-  width: 100%;
+  /* width: 100%; */
 }
 
-input:first-child {
+.input:first-child {
   position: absolute;
   top: 0%;
   left: 0%;
@@ -27,7 +27,7 @@ input:first-child {
   z-index: -1;
 }
 
-input:last-child {
+.input:last-child {
   position: absolute;
   z-index: 10;
 }

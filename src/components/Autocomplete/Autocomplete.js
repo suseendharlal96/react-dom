@@ -57,8 +57,8 @@ const Autocomplete = () => {
 
   return (
     <form className={classes.formContainer}>
-      <input type="text" autoComplete="off" spellCheck="off" value={suggested} onChange={() => {}} />
-      <input type="text" autoComplete="off" pattern=".+@.+" spellCheck="off" value={upiId} onKeyDown={checkRightArrow} placeholder="username@upi" onChange={upiIdChangeHandler} />
+      <input className={classes.input} type="text" autoComplete="off" spellCheck="off" value={suggested} onChange={() => {}} />
+      <input className={classes.input} type="text" autoComplete="off" pattern=".+@.+" spellCheck="off" value={upiId} onKeyDown={checkRightArrow} placeholder="username@upi" onChange={upiIdChangeHandler} />
       {predictionList.length > 0 && (
         <ul className={classes.predictionListContainer}>
           {predictionList.map((list) => (

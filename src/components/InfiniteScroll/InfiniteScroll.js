@@ -7,6 +7,7 @@ import { lazyImagedata } from "../../util/rawData";
 import classes from "./InfiniteScroll.module.css";
 
 const InfiniteScroll = () => {
+  const [load, setLoad] = useState(true);
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
@@ -15,6 +16,7 @@ const InfiniteScroll = () => {
       const users = await response.json();
       const res = await fetch("https://dog.ceo/api/breed/labrador/images/random/10");
       if (res.status === 200 && res.ok) {
+        setLoad(false);
         const { message: imgUrls } = await res.json();
         const usersWithImg = users.reduce((acc, curr, i) => [...acc, { ...curr, img: imgUrls[i] }], []);
         // const usersWithImg = users.map((user, i) => ({ ...user, img: imgUrls[i] }));
@@ -28,7 +30,11 @@ const InfiniteScroll = () => {
     getUsers();
   }, []);
 
-  return <div className={classes.cardContainer}>{users.length > 0 && users.map((user, i) => <UserCard {...user} last={i === users.length - 1} key={uuid()} getUsers={getUsers} />)}</div>;
+  return load ? (
+    <h2>Loading...</h2>
+  ) : (
+    <div className={classes.cardContainer}>{users.length > 0 && users.map((user, i) => <UserCard {...user} last={i === users.length - 1} key={uuid()} getUsers={getUsers} />)}</div>
+  );
 };
 
 export default InfiniteScroll;
