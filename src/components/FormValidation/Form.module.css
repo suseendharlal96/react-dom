@@ -1,0 +1,28 @@
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.invalid {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.name {
+  padding: 1em;
+}
+
+.submitBtn{
+    padding:0.5em;
+    color:#ffffff;
+    border-radius:4px;
+    background-color:rgba(0, 102, 255, 0.8);
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.submitBtn:hover{
+    background-color: rgba(10, 138, 250, 0.817);
+}

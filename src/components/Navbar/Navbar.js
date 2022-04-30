@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 import className from "./Navbar.module.css";
@@ -20,19 +20,35 @@ const links = [
   { id: 14, url: "autocomplete", name: "Autocomplete" },
   { id: 15, url: "lazyload", name: "LazyLoadImage" },
   { id: 16, url: "infiniteload", name: "InfiniteLoad" },
+  { id: 17, url: "formvalidation", name: "FormValidation" },
 ];
 const Navbar = () => {
-  // const [a, a] = useState(d);
+  const [shouldShow, setShouldShow] = useState(true);
+  const [containerClass, setContainerClass] = useState([className.container, ""]);
+  const toggle = () => {
+    // setShouldShow((prev) => !prev);
+    const [first, second] = containerClass;
+    if (second !== "") {
+      setContainerClass([first, ""]);
+    } else {
+      setContainerClass([first, className.active]);
+    }
+  };
   return (
-    <ul className={className.container}>
-      {links.map(({ id, url, name }) => (
-        <li className={className.links} key={id}>
-          <NavLink className={({ isActive }) => (isActive ? className.activeLink : className.link)} to={url}>
-            {name}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
+    <>
+      <button className={className.toggleBtn} onClick={toggle}>
+        Snippets
+      </button>
+      <ul className={containerClass.join(" ")}>
+        {links.map(({ id, url, name }) => (
+          <li className={className.links} key={id}>
+            <NavLink className={({ isActive }) => (isActive ? className.activeLink : className.link)} to={url}>
+              {name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 

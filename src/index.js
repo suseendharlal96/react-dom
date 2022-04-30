@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import Navbar from "./components/Navbar/Navbar";
 import LazyLoad from "./components/LazyLoading/LazyLoading";
 import InfiniteScroll from "./components/InfiniteScroll/InfiniteScroll";
+import FormValidation from "./components/FormValidation/FormValidation";
 const Checkbox = React.lazy(() => import("./components/Checkbox/Checkbox"));
 const CountDown = React.lazy(() => import("./components/Countdown/Countdown"));
 const Calender = React.lazy(() => import("./components/Calender/Calender"));
@@ -54,6 +55,7 @@ ReactDOM.render(
           <Route path="autocomplete" element={<Autocomplete />} />
           <Route path="lazyload" element={<LazyLoad />} />
           <Route path="infiniteload" element={<InfiniteScroll />} />
+          <Route path="formvalidation" element={<FormValidation />} />
         </Route>
       </Routes>
     </React.Suspense>
