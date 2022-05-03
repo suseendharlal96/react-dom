@@ -36,7 +36,7 @@ const calcReducer = (state, { type, payload }) => {
       if (state.operation && state.curr && state.prev) {
         const result = evaluate(state.prev, state.curr, state.operation);
         console.log({ result });
-        return { ...state, curr: result, prev: null, operation: null };
+        return { ...state, curr: result.toString(), prev: null, operation: null };
       }
 
     default:
