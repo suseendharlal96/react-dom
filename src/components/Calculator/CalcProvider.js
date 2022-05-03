@@ -28,10 +28,20 @@ const calcReducer = (state, { type, payload }) => {
       if (state.curr.includes(".") && payload === ".") return state;
       if (state.overwrite && payload !== ".") return { ...state, curr: `${payload}`, overwrite: false };
       return { ...state, curr: `${state.curr || ""}${payload}`, overwrite: false };
+    case ACTIONS.REMOVE_DIGIT:
+      let existingNum = state.curr;
+      let overwrite = true;
+      existingNum = existingNum.substring(0, existingNum.length - 1);
+      if (existingNum.length === 0) {
+        existingNum = "0";
+      } else {
+        overwrite = false;
+      }
+      return { ...state, curr: existingNum, overwrite };
     case ACTIONS.CLEAR:
       return { ...state, curr: "0", overwrite: true, prev: null, operation: null };
     case ACTIONS.CHOOSE_OP:
-      return { ...state, prev: state.curr, curr: "", operation: payload };
+      return { ...state, prev: state.curr, curr: "0", operation: payload, overwrite: true };
     case ACTIONS.EVALUATE:
       if (state.operation && state.curr && state.prev) {
         const result = evaluate(state.prev, state.curr, state.operation);

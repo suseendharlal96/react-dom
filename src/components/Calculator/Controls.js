@@ -14,13 +14,13 @@ const Controls = () => {
     } else if (key === "=" || key === "Enter") {
       dispatch({ type: ACTIONS.EVALUATE, payload: key });
     } else if (key === "Backspace") {
-      dispatch({ type: ACTIONS.CLEAR });
+      dispatch({ type: ACTIONS.REMOVE_DIGIT });
     }
   }, []);
 
   useEffect(() => {
-    document.body.addEventListener("keyup", handleKeyBoardCharac);
-    return () => document.body.removeEventListener("keyup", handleKeyBoardCharac);
+    document.body.addEventListener("keydown", handleKeyBoardCharac);
+    return () => document.body.removeEventListener("keydown", handleKeyBoardCharac);
   }, []);
 
   return btnArr.map((btn) => <Button key={btn.symbol} {...btn} />);

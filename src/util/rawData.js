@@ -67,6 +67,7 @@ export const ACTIONS = {
   DELETE_DIGIT: "del-digit",
   CHOOSE_OP: "operation",
   CLEAR: "clear",
+  REMOVE_DIGIT: "remove-digit",
   EVALUATE: "evaluate",
 };
 
