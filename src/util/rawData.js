@@ -83,6 +83,11 @@ export let btnArr = [
   //   type: ACTIONS.CHOOSE_OP,
   // },
   {
+    style: { gridArea: "delete", backgroundColor: "#eb3636", color: "#ffffff" },
+    symbol: "DEL",
+    type: ACTIONS.REMOVE_DIGIT,
+  },
+  {
     style: { gridArea: "mod", backgroundColor: "#dadce0" },
     symbol: "%",
     type: ACTIONS.CHOOSE_OP,

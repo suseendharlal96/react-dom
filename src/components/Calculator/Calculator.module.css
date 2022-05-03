@@ -5,7 +5,7 @@
   gap: 10px;
   grid-template-areas:
     "disp disp disp disp"
-    "mod reset reset reset"
+    "mod delete reset reset"
     "seven eight nine div"
     "four five six mul"
     "one two three sub"
