@@ -23,6 +23,7 @@ const Memory = React.lazy(() => import("./components/Memory/Memory"));
 const Nested = React.lazy(() => import("./components/NestedFolder/Nested"));
 const Comment = React.lazy(() => import("./components/Comment/Comment"));
 const Autocomplete = React.lazy(() => import("./components/Autocomplete/Autocomplete"));
+const Calculator = React.lazy(() => import("./components/Calculator/Calculator"));
 
 ReactDOM.render(
   // <React.StrictMode>
@@ -56,6 +57,7 @@ ReactDOM.render(
           <Route path="lazyload" element={<LazyLoad />} />
           <Route path="infiniteload" element={<InfiniteScroll />} />
           <Route path="formvalidation" element={<FormValidation />} />
+          <Route path="calculator" element={<Calculator />} />
         </Route>
       </Routes>
     </React.Suspense>

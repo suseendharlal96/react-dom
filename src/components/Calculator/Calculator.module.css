@@ -1,0 +1,38 @@
+.calcContainer {
+  width: 50vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-template-areas:
+    "disp disp disp disp"
+    "mod reset reset reset"
+    "seven eight nine div"
+    "four five six mul"
+    "one two three sub"
+    "zero decimal equal add";
+}
+
+.display {
+  grid-area: disp;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  min-height: 70px;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:space-between;
+  font-size:1.8rem;
+}
+
+.calcBtn {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1em;
+}
+
+/* .calcBtn:hover {
+  background-color: rgba(218, 220, 224, 0.5) !important;
+  transition: all 0.5s;
+} */

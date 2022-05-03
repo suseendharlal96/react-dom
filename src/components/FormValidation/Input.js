@@ -3,7 +3,6 @@ import React from "react";
 import classes from "./Form.module.css";
 
 const Input = ({ id, name, type, placeholder, isValidationRequired, isValid, isTouched, validations, changed, ...rest }) => {
-  console.log({ rest });
   let customElement = null;
 
   switch (type) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Profiler, useState } from "react";
 
 import Input from "./Input";
 
@@ -130,22 +130,28 @@ const FormValidation = () => {
       });
       document.getElementById("object").innerText = JSON.stringify(formData);
     } else {
-      document.getElementById("object").innerText = "Form is invalid"
+      document.getElementById("object").innerText = "Form is invalid";
     }
+  };
+
+  const performanceHandler = (...args) => {
+    console.log(args);
   };
 
   return (
     <>
       <h3>Form is: {isFormValid ? "Valid" : "Invalid"}</h3>
-      <form className={classes.formContainer} onSubmit={(e) => submitForm(e)}>
-        {formElements.map((element) => (
-          <Input key={element.id} {...element} changed={(val, id) => changeHandler(val, id)} />
-        ))}
-        <button className={classes.submitBtn} type="submit">
-          Submit
-        </button>
-        <pre id="object"></pre>
-      </form>
+      <Profiler id="form" onRender={performanceHandler}>
+        <form className={classes.formContainer} onSubmit={(e) => submitForm(e)}>
+          {formElements.map((element) => (
+            <Input key={element.id} {...element} changed={(val, id) => changeHandler(val, id)} />
+          ))}
+          <button className={classes.submitBtn} type="submit">
+            Submit
+          </button>
+          <pre id="object"></pre>
+        </form>
+      </Profiler>
     </>
   );
 };

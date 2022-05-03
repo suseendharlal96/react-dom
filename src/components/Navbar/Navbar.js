@@ -7,6 +7,7 @@ const links = [
   { id: 1, url: "checkbox", name: "Checkbox" },
   { id: 2, url: "countdown", name: "Countdown" },
   { id: 3, url: "calender", name: "Calender" },
+  { id: 18, url: "calculator", name: "Calculator" },
   { id: 4, url: "hoc", name: "HOC" },
   { id: 5, url: "modal", name: "Modal" },
   { id: 6, url: "colorspotter", name: "Color Spotter" },
@@ -23,10 +24,8 @@ const links = [
   { id: 17, url: "formvalidation", name: "FormValidation" },
 ];
 const Navbar = () => {
-  const [shouldShow, setShouldShow] = useState(true);
   const [containerClass, setContainerClass] = useState([className.container, ""]);
   const toggle = () => {
-    // setShouldShow((prev) => !prev);
     const [first, second] = containerClass;
     if (second !== "") {
       setContainerClass([first, ""]);
@@ -42,7 +41,7 @@ const Navbar = () => {
       <ul className={containerClass.join(" ")}>
         {links.map(({ id, url, name }) => (
           <li className={className.links} key={id}>
-            <NavLink className={({ isActive }) => (isActive ? className.activeLink : className.link)} to={url}>
+            <NavLink className={({ isActive }) => (isActive ? className.activeLink : className.link)} onClick={toggle} to={url}>
               {name}
             </NavLink>
           </li>
