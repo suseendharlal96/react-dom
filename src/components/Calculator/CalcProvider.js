@@ -28,6 +28,7 @@ const calcReducer = (state, { type, payload }) => {
       if (state.curr.includes(".") && payload === ".") return state;
       if (state.overwrite && payload !== ".") return { ...state, curr: `${payload}`, overwrite: false };
       return { ...state, curr: `${state.curr || ""}${payload}`, overwrite: false };
+
     case ACTIONS.REMOVE_DIGIT:
       let existingNum = state.curr;
       let overwrite = true;
@@ -38,15 +39,38 @@ const calcReducer = (state, { type, payload }) => {
         overwrite = false;
       }
       return { ...state, curr: existingNum, overwrite };
+
     case ACTIONS.CLEAR:
       return { ...state, curr: "0", overwrite: true, prev: null, operation: null };
+
     case ACTIONS.CHOOSE_OP:
       return { ...state, prev: state.curr, curr: "0", operation: payload, overwrite: true };
+
     case ACTIONS.EVALUATE:
       if (state.operation && state.curr && state.prev) {
         const result = evaluate(state.prev, state.curr, state.operation);
         console.log({ result });
-        return { ...state, curr: result.toString(), prev: null, operation: null };
+        state.currStack.push(state.curr);
+        state.prevStack.push(`${state.prev}_${state.operation}`);
+        const currStack = state.currStack;
+        const prevStack = state.prevStack;
+        console.log({ currStack, prevStack });
+        return { ...state, curr: result.toString(), prev: null, operation: null, prevStack, currStack };
+      }
+
+    case ACTIONS.PREV_OPERATION:
+      if (state.currStack.length > 0 && state.prevStack.length > 0) {
+        const oldCurr = state.currStack[state.currStack.length - 1];
+        const oldPrev = state.prevStack[state.prevStack.length - 1].split("_")[0];
+        const oldOperation = state.prevStack[state.prevStack.length - 1].split("_")[1];
+        return {
+          ...state,
+          operation: oldOperation,
+          curr: oldCurr,
+          prev: oldPrev,
+          currStack: state.currStack.slice(0, state.currStack.length - 1),
+          prevStack: state.prevStack.slice(0, state.prevStack.length - 1),
+        };
       }
 
     default:
@@ -58,6 +82,8 @@ export const CalcProvider = ({ children }) => {
   const [state, dispatch] = useReducer(calcReducer, {
     curr: "0",
     prev: null,
+    currStack: [],
+    prevStack: [],
     overwrite: true,
     operation: null,
   });

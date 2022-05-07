@@ -69,6 +69,7 @@ export const ACTIONS = {
   CLEAR: "clear",
   REMOVE_DIGIT: "remove-digit",
   EVALUATE: "evaluate",
+  PREV_OPERATION: "prev-operation",
 };
 
 export let btnArr = [
