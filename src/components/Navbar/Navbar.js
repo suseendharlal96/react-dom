@@ -21,7 +21,7 @@ const links = [
   { id: 14, url: "autocomplete", name: "Autocomplete" },
   { id: 15, url: "lazyload", name: "LazyLoadImage" },
   { id: 16, url: "infiniteload", name: "InfiniteLoad" },
-  { id: 17, url: "formvalidation", name: "FormValidation" },
+  { id: 17, url: "formvalidation", name: "MultiForm" },
 ];
 const Navbar = () => {
   const [containerClass, setContainerClass] = useState([className.container, ""]);

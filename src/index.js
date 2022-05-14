@@ -7,7 +7,8 @@ import reportWebVitals from "./reportWebVitals";
 import Navbar from "./components/Navbar/Navbar";
 import LazyLoad from "./components/LazyLoading/LazyLoading";
 import InfiniteScroll from "./components/InfiniteScroll/InfiniteScroll";
-import FormValidation from "./components/FormValidation/FormValidation";
+import MultistepForm from "./components/FormValidation/MultistepForm";
+export const FormTwo = React.lazy(() => import("./components/FormValidation/FormTwo"));
 const Checkbox = React.lazy(() => import("./components/Checkbox/Checkbox"));
 const CountDown = React.lazy(() => import("./components/Countdown/Countdown"));
 const Calender = React.lazy(() => import("./components/Calender/Calender"));
@@ -39,7 +40,7 @@ ReactDOM.render(
             </Error>
           }
         >
-          <Route index element={<Checkbox />} />
+          <Route index element={<MultistepForm />} />
           <Route path="checkbox" element={<Checkbox />} />
           <Route path="countdown" element={<CountDown />} />
           <Route path="calender" element={<Calender />} />
@@ -56,7 +57,7 @@ ReactDOM.render(
           <Route path="autocomplete" element={<Autocomplete />} />
           <Route path="lazyload" element={<LazyLoad />} />
           <Route path="infiniteload" element={<InfiniteScroll />} />
-          <Route path="formvalidation" element={<FormValidation />} />
+          <Route path="formvalidation" element={<MultistepForm />} />
           <Route path="calculator" element={<Calculator />} />
         </Route>
       </Routes>

@@ -153,3 +153,13 @@ btnArr = [
 ];
 
 // Calculator Data ends
+
+// MultiStepForm Data starts
+
+export const FORM_ACTIONS = {
+  NEXT_FORM: "next",
+  PREV_FORM: "prev",
+  UPDATE_FIELDS: "updateFields",
+};
+
+// MultiStepForm Data ends
