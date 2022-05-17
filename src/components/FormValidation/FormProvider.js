@@ -7,71 +7,81 @@ const initState = {
   activeIndex: 0,
   steps: 2,
   fieldStart: 0,
-  isFormValid: false,
-  currentForm: [
-    {
-      id: 1,
-      name: "Name",
-      type: "text",
-      placeholder: "Your name",
-      value: "",
-      isValidationRequired: true,
-      validations: {
-        isRequired: true,
-        minLen: 1,
-        maxLen: 20,
-      },
-      isValid: false,
-      isTouched: false,
-    },
-    {
-      id: 2,
-      name: "Age",
-      type: "number",
-      placeholder: "Your age",
-      value: 1,
-      isValidationRequired: true,
-      validations: {
-        isRequired: true,
-        min: 1,
-        max: 60,
-      },
-      isValid: true,
-      isTouched: false,
-    },
-    {
-      id: 3,
-      name: "Gender",
-      type: "radio",
-      placeholder: "Your Gender",
-      value: "Male",
-      isValidationRequired: true,
-      validations: {
-        isRequired: false,
-      },
-      options: ["Male", "Female", "Others"],
-      isValid: true,
-      isTouched: false,
-    },
-    {
-      id: 4,
-      name: "Payment method",
-      type: "select",
-      placeholder: "Your Method",
-      value: "cash",
-      isValidationRequired: true,
-      validations: {
-        isRequired: false,
-      },
-      options: [
-        { key: "cash", val: "Cash" },
-        { key: "card", val: "Card" },
-        { key: "ondelivery", val: "On-delivery" },
+  currentForm: {
+    formOne: {
+      fields: [
+        {
+          id: 1,
+          name: "Name",
+          type: "text",
+          placeholder: "Your name",
+          value: "",
+          isValidationRequired: true,
+          validations: {
+            isRequired: true,
+            minLen: 1,
+            maxLen: 20,
+          },
+          isValid: false,
+          isTouched: false,
+        },
+        {
+          id: 2,
+          name: "Age",
+          type: "number",
+          placeholder: "Your age",
+          value: 1,
+          isValidationRequired: true,
+          validations: {
+            isRequired: true,
+            min: 1,
+            max: 60,
+          },
+          isValid: true,
+          isTouched: false,
+        },
       ],
-      isValid: true,
-      isTouched: false,
+      isValid: false,
     },
-  ],
+    formTwo: {
+      fields: [
+        {
+          id: 3,
+          name: "Gender",
+          type: "radio",
+          placeholder: "Your Gender",
+          value: "Male",
+          isValidationRequired: true,
+          validations: {
+            isRequired: false,
+          },
+          options: ["Male", "Female", "Others"],
+          isValid: true,
+          isTouched: false,
+        },
+        {
+          id: 4,
+          name: "Payment method",
+          type: "select",
+          placeholder: "Your Method",
+          value: "cash",
+          isValidationRequired: true,
+          validations: {
+            isRequired: false,
+          },
+          options: [
+            { key: "cash", val: "Cash" },
+            { key: "card", val: "Card" },
+            { key: "ondelivery", val: "On-delivery" },
+          ],
+          isValid: true,
+          isTouched: false,
+        },
+      ],
+      isValid: false,
+    },
+  },
+  isFormValid: false,
 };
 
 const checkValidation = (validations, val) => {
@@ -91,10 +101,11 @@ const checkValidation = (validations, val) => {
   return isValid;
 };
 
-const changeHandler = (state, val, id) => {
+const changeHandler = (state, val, formType, id) => {
   console.log({ val, id });
+  const activeIndex = state.activeIndex;
   const clone = JSON.parse(JSON.stringify(state.currentForm));
-  const changedEl = clone.find((cl) => cl.id === id);
+  const changedEl = clone[formType]?.fields?.find((cl) => cl.id === id);
   console.log({ changedEl });
   switch (id) {
     case 1:
@@ -117,11 +128,11 @@ const changeHandler = (state, val, id) => {
       changedEl.isValid = true;
   }
   let formisValid = true;
-  clone.forEach((el) => {
-    formisValid = el.isValid && formisValid;
+  clone[formType]?.fields.forEach((field) => {
+    formisValid = formisValid && field.isValid;
   });
-  clone.isFormValid = formisValid;
-  return { ...initState, currentForm: clone };
+  clone[formType].isValid = formisValid;
+  return { ...initState, currentForm: clone, activeIndex };
 };
 
 const formReducer = (state, { type, payload }) => {
@@ -131,8 +142,8 @@ const formReducer = (state, { type, payload }) => {
     case FORM_ACTIONS.PREV_FORM:
       return { ...state, activeIndex: state.activeIndex - 1, fieldStart: state.fieldStart - 2 };
     case FORM_ACTIONS.UPDATE_FIELDS:
-      const { val, id } = payload;
-      return changeHandler(state, val, id);
+      const { val, id, formType } = payload;
+      return changeHandler(state, val, formType, id);
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import classes from "./InfiniteScroll.module.css";
 
 const initInfiniteObserver = (ref, cb) => {
-  const observer = new IntersectionObserver(
+  const infiniteObserver = new IntersectionObserver(
     (entries, observer) => {
       const lastCardObj = entries[0];
       if (!lastCardObj.isIntersecting) return;
@@ -12,11 +12,12 @@ const initInfiniteObserver = (ref, cb) => {
     },
     { threshold: 0.5 }
   );
-  observer.observe(ref);
+  infiniteObserver.observe(ref);
+  return infiniteObserver;
 };
 
 const initLazyImageObserver = (ref, cb) => {
-  const observer = new IntersectionObserver(
+  const imageObserver = new IntersectionObserver(
     (entries, observer) => {
       const observedElObj = entries[0];
       if (!observedElObj.isIntersecting) return;
@@ -26,7 +27,8 @@ const initLazyImageObserver = (ref, cb) => {
     { threshold: 0.5 }
   );
 
-  observer.observe(ref);
+  imageObserver.observe(ref);
+  return imageObserver;
 };
 
 const UserCard = ({ id, name, img, email, getUsers, last }) => {
@@ -35,8 +37,16 @@ const UserCard = ({ id, name, img, email, getUsers, last }) => {
   const imgRef = useRef();
 
   useEffect(() => {
-    if (last) initInfiniteObserver(lastCardRef.current, getUsers);
-    initLazyImageObserver(imgRef.current, setImgInViewport);
+    let imageObserver;
+    let infiniteObserver;
+    if (last) {
+      infiniteObserver = initInfiniteObserver(lastCardRef.current, getUsers);
+    }
+    imageObserver = initLazyImageObserver(imgRef.current, setImgInViewport);
+    return () => {
+      imageObserver?.disconnect();
+      infiniteObserver?.disconnect();
+    };
   }, [last, getUsers]);
 
   return last ? (

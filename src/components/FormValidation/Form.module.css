@@ -28,3 +28,21 @@
 .submitBtn:hover {
   background-color: rgba(10, 138, 250, 0.817);
 }
+
+.btn {
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: #ffffff;
+  width: 115px;
+  margin-top: 5%;
+}
+.disabledbtn {
+  background-color: rgb(181, 178, 178);
+  cursor: no-drop;
+  color:#000000;
+}
+
+.validbtn {
+  background-color: rgb(23, 132, 240);
+  cursor: pointer;
+}

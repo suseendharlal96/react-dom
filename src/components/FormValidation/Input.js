@@ -12,7 +12,7 @@ const Input = ({ id, name, type, placeholder, isValidationRequired, isValid, isT
         <>
           <h4>{name}</h4>
           <input
-            className={!isValid && isTouched ? [classes.name, classes.invalid].join(' ') : classes.name}
+            className={!isValid && isTouched ? [classes.name, classes.invalid].join(" ") : classes.name}
             type={type}
             id={name}
             placeholder={placeholder}
@@ -28,7 +28,6 @@ const Input = ({ id, name, type, placeholder, isValidationRequired, isValid, isT
           <h4>{name}</h4>
           {rest?.options?.map((op) => (
             <React.Fragment key={op}>
-              <label htmlFor={op}>{op}</label>
               <input
                 className={!isValid && isTouched ? classes.invalid : ""}
                 type={type}
@@ -36,7 +35,9 @@ const Input = ({ id, name, type, placeholder, isValidationRequired, isValid, isT
                 value={op}
                 id={op}
                 onChange={({ target: { value } }) => changed(value, id)}
-              ></input>
+                ></input>
+              <label htmlFor={op}>{op}</label>
+              <br />
             </React.Fragment>
           ))}
         </>

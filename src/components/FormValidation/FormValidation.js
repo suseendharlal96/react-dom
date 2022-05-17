@@ -15,7 +15,7 @@ const FormValidation = () => {
     state: { activeIndex, currentForm, steps, fieldStart },
     dispatch,
   } = useForm();
-  const components = [<FormOne fields={currentForm.slice(fieldStart, fieldStart + steps)} />, <FormTwo fields={currentForm.slice(fieldStart, fieldStart + steps)} />];
+  const components = [<FormOne fields={currentForm?.formOne?.fields} />, <FormTwo fields={currentForm?.formTwo?.fields} />];
 
   // const checkValidation = (validations, val) => {
   //   let isValid = true;
@@ -34,38 +34,38 @@ const FormValidation = () => {
   //   return isValid;
   // };
 
-    // const changeHandler = (val, id) => {
-    //   console.log({ val, id });
-    //   const clone = JSON.parse(JSON.stringify(formElements));
-    //   const changedEl = clone.find((cl) => cl.id === id);
-    //   console.log({ changedEl });
-    //   switch (id) {
-    //     case 1:
-    //       changedEl.isTouched = true;
-    //       if (changedEl.validations) {
-    //         changedEl.isValid = checkValidation(changedEl.validations, val);
-    //         changedEl.value = val;
-    //       }
-    //       break;
-    //     case 2:
-    //       changedEl.isTouched = true;
-    //       if (changedEl.validations) {
-    //         changedEl.isValid = checkValidation(changedEl.validations, val);
-    //         changedEl.value = val;
-    //       }
-    //       break;
-    //     default:
-    //       changedEl.isTouched = true;
-    //       changedEl.value = val;
-    //       changedEl.isValid = true;
-    //   }
-    //   let formisValid = true;
-    //   clone.forEach((el) => {
-    //     formisValid = el.isValid && formisValid;
-    //   });
-    //   setFormElements(clone);
-    //   setFormValid(formisValid);
-    // };
+  // const changeHandler = (val, id) => {
+  //   console.log({ val, id });
+  //   const clone = JSON.parse(JSON.stringify(formElements));
+  //   const changedEl = clone.find((cl) => cl.id === id);
+  //   console.log({ changedEl });
+  //   switch (id) {
+  //     case 1:
+  //       changedEl.isTouched = true;
+  //       if (changedEl.validations) {
+  //         changedEl.isValid = checkValidation(changedEl.validations, val);
+  //         changedEl.value = val;
+  //       }
+  //       break;
+  //     case 2:
+  //       changedEl.isTouched = true;
+  //       if (changedEl.validations) {
+  //         changedEl.isValid = checkValidation(changedEl.validations, val);
+  //         changedEl.value = val;
+  //       }
+  //       break;
+  //     default:
+  //       changedEl.isTouched = true;
+  //       changedEl.value = val;
+  //       changedEl.isValid = true;
+  //   }
+  //   let formisValid = true;
+  //   clone.forEach((el) => {
+  //     formisValid = el.isValid && formisValid;
+  //   });
+  //   setFormElements(clone);
+  //   setFormValid(formisValid);
+  // };
 
   // const submitForm = (e) => {
   //   e.preventDefault();

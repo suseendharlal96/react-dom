@@ -40,7 +40,7 @@ ReactDOM.render(
             </Error>
           }
         >
-          <Route index element={<MultistepForm />} />
+          <Route index element={<Calculator />} />
           <Route path="checkbox" element={<Checkbox />} />
           <Route path="countdown" element={<CountDown />} />
           <Route path="calender" element={<Calender />} />

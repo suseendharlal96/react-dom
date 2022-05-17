@@ -14,6 +14,7 @@ const initObserver = (ref, fn, root, threshold) => {
   );
   observer.disconnect();
   observer.observe(ref);
+  return observer;
 };
 
 const Image = ({ id, url, root, threshold }) => {
@@ -22,7 +23,8 @@ const Image = ({ id, url, root, threshold }) => {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    initObserver(imageRef.current, setIsLoaded, root, threshold);
+   const observer= initObserver(imageRef.current, setIsLoaded, root, threshold);
+   return ()=>observer.disconnect();
   }, [root, threshold]);
 
   return isLoaded ? <img alt={id} className={classes.placeholder} src={url} /> : <img alt={id} ref={imageRef} className={classes.placeholder} />;
