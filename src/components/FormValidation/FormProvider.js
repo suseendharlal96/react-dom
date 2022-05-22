@@ -135,6 +135,19 @@ const changeHandler = (state, val, formType, id) => {
   return { ...initState, currentForm: clone, activeIndex };
 };
 
+// const submitForm = (e) => {
+//   e.preventDefault();
+//   if (isFormValid) {
+//     const formData = {};
+//     formElements.forEach((el) => {
+//       formData[el.name] = el.value;
+//     });
+//     document.getElementById("object").innerText = JSON.stringify(formData);
+//   } else {
+//     document.getElementById("object").innerText = "Form is invalid";
+//   }
+// };
+
 const formReducer = (state, { type, payload }) => {
   switch (type) {
     case FORM_ACTIONS.NEXT_FORM:

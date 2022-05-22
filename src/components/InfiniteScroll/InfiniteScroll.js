@@ -10,11 +10,11 @@ const InfiniteScroll = () => {
   const [load, setLoad] = useState(true);
   const [users, setUsers] = useState([]);
 
-  const getUsers = async () => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const getUsers = async (userController, imageController) => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users", { signal: userController.signal });
     if (response.ok && response.status === 200) {
       const users = await response.json();
-      const res = await fetch("https://dog.ceo/api/breed/labrador/images/random/10");
+      const res = await fetch("https://dog.ceo/api/breed/labrador/images/random/10", { signal: imageController.signal });
       if (res.status === 200 && res.ok) {
         setLoad(false);
         const { message: imgUrls } = await res.json();
@@ -27,7 +27,13 @@ const InfiniteScroll = () => {
   };
 
   useEffect(() => {
-    getUsers();
+    const userController = new AbortController();
+    const imageController = new AbortController();
+    getUsers(userController, imageController);
+    return () => {
+      userController.abort();
+      imageController.abort();
+    };
   }, []);
 
   return load ? (
