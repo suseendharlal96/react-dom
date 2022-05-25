@@ -6,8 +6,9 @@ const folderObj = {
   root: [
     {
       name: "public",
+      children: [{ name: "index.html" }, { name: "favicon.icon" }],
     },
-    { name: "src", children: [{ name: "components", children: [{ name: "Button" }, { name: "Clock", children: [{ name: "Clock.js" }] }] }] },
+    { name: "src", children: [{ name: "components", children: [{ name: "Button.js" }, { name: "Clock", children: [{ name: "Clock.js" }] }] }] },
     {
       name: ".gitignore",
     },
@@ -26,7 +27,6 @@ const folderObj = {
 const Nested = () => {
   return (
     <div>
-      <strong>Folders are in Bold</strong>
       {folderObj.root.map((folder) => (
         <NestedInner key={folder.name} folder={folder} />
       ))}
