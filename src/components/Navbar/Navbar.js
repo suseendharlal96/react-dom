@@ -22,6 +22,8 @@ const links = [
   { id: 15, url: "lazyload", name: "LazyLoadImage" },
   { id: 16, url: "infiniteload", name: "InfiniteLoad" },
   { id: 17, url: "formvalidation", name: "MultiForm" },
+  { id: 18, url: "quiz", name: "Quiz" },
+  { id: 19, url: "flipgame", name: "Flip Game" },
 ];
 const Navbar = () => {
   const [containerClass, setContainerClass] = useState([className.container, ""]);

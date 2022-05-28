@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar/Navbar";
 import LazyLoad from "./components/LazyLoading/LazyLoading";
 import InfiniteScroll from "./components/InfiniteScroll/InfiniteScroll";
 import MultistepForm from "./components/FormValidation/MultistepForm";
+import Quiz from "./components/Quiz/Quiz";
+import FlipGame from "./components/FlipGame/FlipGame";
 export const FormTwo = React.lazy(() => import("./components/FormValidation/FormTwo"));
 const Checkbox = React.lazy(() => import("./components/Checkbox/Checkbox"));
 const CountDown = React.lazy(() => import("./components/Countdown/Countdown"));
@@ -59,6 +61,8 @@ ReactDOM.render(
           <Route path="infiniteload" element={<InfiniteScroll />} />
           <Route path="formvalidation" element={<MultistepForm />} />
           <Route path="calculator" element={<Calculator />} />
+          <Route path="quiz" element={<Quiz />} />
+          <Route path="flipgame" element={<FlipGame />} />
         </Route>
       </Routes>
     </React.Suspense>

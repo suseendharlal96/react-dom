@@ -1,0 +1,32 @@
+.cardscontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+.card {
+  width: 200px;
+  cursor: pointer;
+  position: relative;
+  /* transition: all 3s ease-in-out; */
+}
+
+.card-img {
+  object-fit: cover;
+}
+
+.front {
+  transform: rotateX(90deg);
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+
+.flipped {
+  transform: rotateX(0deg);
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: no-drop;
+}
