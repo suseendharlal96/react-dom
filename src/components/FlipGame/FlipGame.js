@@ -4,12 +4,12 @@ import Card from "./Card";
 import "./FlipGame.css";
 
 const cards = [
-  { src: "./logo1.jpeg", matched: false },
-  { src: "./logo2.png", matched: false },
-  { src: "./logo3.png", matched: false },
-  { src: "./logo4.png", matched: false },
-  { src: "./logo5.png", matched: false },
-  { src: "./logo6.png", matched: false },
+  { src: "https://source.unsplash.com/featured?animal", matched: false },
+  { src: "https://source.unsplash.com/featured?cat", matched: false },
+  { src: "https://source.unsplash.com/featured?sea", matched: false },
+  { src: "https://source.unsplash.com/featured?game", matched: false },
+  { src: "https://source.unsplash.com/featured?car", matched: false },
+  { src: "https://source.unsplash.com/featured?house", matched: false },
 ];
 
 const FlipGame = () => {
